@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canon ProShop - Máy Ảnh Canon EOS R Series Chính Hãng</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        canon: '#DC2626',
+                        canonDark: '#991B1B',
+                        zalo: '#0068FF'
+                    },
+                    keyframes: {
+                        pulseCustom: {
+                            '0%, 100%': { transform: 'scale(1)' },
+                            '50%': { transform: 'scale(1.05)' },
+                        }
+                    },
+                    animation: {
+                        'pulse-custom': 'pulseCustom 2s infinite ease-in-out',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Tối ưu hiệu ứng accordion & toast */
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease-out;
+        }
+        .faq-content.open {
+            max-height: 350px;
+            transition: max-height 0.4s ease-in;
+        }
+        @keyframes slideInLeft {
+            from { transform: translateX(-110%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes slideOutLeft {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(-110%); opacity: 0; }
+        }
+        .toast-show {
+            animation: slideInLeft 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .toast-hide {
+            animation: slideOutLeft 0.4s cubic-bezier(0.7, 0, 0.84, 0) forwards;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans pb-24 md:pb-0 relative selection:bg-red-500 selection:text-white">
+
+    <!-- TOP ANNOUNCEMENT BAR & COUNTDOWN TIMER -->
+    <div class="bg-gradient-to-r from-red-700 via-red-600 to-red-700 text-white text-xs md:text-sm py-2 px-4 text-center font-medium sticky top-0 z-50 shadow-md">
+        <div class="container mx-auto flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-4">
+            <span>🔥 <strong>ƯU ĐÃI ĐẶC QUYỀN 2026:</strong> Giảm đến 20% + Tặng Thẻ SanDisk Extreme 64GB & Túi Canon chính hãng</span>
+            <div class="flex items-center bg-black/30 px-2.5 py-0.5 rounded font-mono text-yellow-300 font-bold">
+                <i class="fa-regular fa-clock mr-1.5 animate-pulse"></i>
+                <span id="countdown">14:59</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="bg-white/95 backdrop-blur-md border-b border-gray-200 sticky top-8 z-40 shadow-sm">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <a href="#" class="text-2xl font-black tracking-tight text-canon flex items-center">
+                    CANON <span class="text-gray-900 font-light ml-1">ProShop</span>
+                </a>
+                <span class="hidden md:inline-flex items-center space-x-1 bg-red-50 text-canon text-xs px-2.5 py-0.5 rounded-full font-semibold border border-red-200">
+                    <i class="fa-solid fa-certificate text-[10px]"></i>
+                    <span>Ủy Quyền Lê Bảo Minh</span>
+                </span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="tel:19006789" class="hidden sm:flex items-center text-sm font-bold text-gray-700 hover:text-canon transition-colors">
+                    <span class="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center text-canon mr-2">
+                        <i class="fa-solid fa-phone text-xs"></i>
+                    </span>
+                    <span>1900 6789</span>
+                </a>
+                <a href="#order-form" class="bg-canon hover:bg-canonDark text-white text-xs md:text-sm font-extrabold px-4 md:px-5 py-2.5 rounded-xl transition-all shadow-md hover:shadow-red-200 transform hover:-translate-y-0.5">
+                    ĐẶT MUA NGAY
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- KHỐI 1: HERO SECTION (ATTENTION) -->
+    <section class="py-10 md:py-16 bg-white overflow-hidden border-b border-gray-100">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <!-- Left Column: Content -->
+            <div class="space-y-5 text-center md:text-left">
+                <div class="inline-flex items-center space-x-2 bg-red-50 border border-red-200 text-canon text-xs md:text-sm px-3.5 py-1 rounded-full font-semibold">
+                    <i class="fa-solid fa-bolt text-yellow-500"></i>
+                    <span>Dòng Mirrorless Full-Frame & Crop Đột Phá</span>
+                </div>
+                <h1 class="text-3xl md:text-5xl font-black tracking-tight text-gray-900 leading-tight">
+                    Canon EOS R Series <br>
+                    <span class="text-canon">Bắt Trọn Khoảnh Khắc</span> Bằng AI
+                </h1>
+                <p class="text-gray-600 text-sm md:text-base leading-relaxed">
+                    Hệ thống lấy nét tự động Dual Pixel CMOS AF II nhận diện thông minh, quay phim 4K 60fps Uncropped sắc nét, chống rung IBIS lên tới 8 stop. Trợ thủ sáng tạo nội dung hàng đầu cho Nhiếp ảnh gia & Vlogger.
+                </p>
+
+                <!-- Giá & Tiết Kiệm Nhanh -->
+                <div class="p-4 bg-gradient-to-r from-red-50 to-orange-50 rounded-2xl border border-red-100 flex flex-wrap items-center justify-between gap-3">
+                    <div>
+                        <span class="text-xs text-gray-500 line-through block" id="heroOldPrice">32.500.000đ</span>
+                        <span class="text-2xl md:text-3xl font-black text-canon" id="heroCurrentPrice">25.990.000đ</span>
+                    </div>
+                    <span class="bg-canon text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-sm">
+                        TIẾT KIỆM ĐẾN 6.510.000đ
+                    </span>
+                </div>
+
+                <!-- CTA & Trust Points -->
+                <div class="pt-2 flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
+                    <a href="#order-form" class="w-full sm:w-auto text-center bg-canon hover:bg-canonDark text-white font-black text-base px-8 py-4 rounded-xl shadow-xl hover:shadow-red-200 transition-all transform hover:-translate-y-0.5 flex items-center justify-center space-x-2">
+                        <span>ĐẶT MUA NGAY - NHẬN QUÀ 2.5TR</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Rating Proof -->
+                <div class="flex items-center justify-center md:justify-start space-x-3 pt-1 text-xs md:text-sm text-gray-500">
+                    <div class="flex text-yellow-400 text-sm">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <span class="font-medium text-gray-700">4.9/5 (1.450+ đánh giá xác thực từ người dùng)</span>
+                </div>
+            </div>
+
+            <!-- Right Column: Interactive Product Gallery -->
+            <div class="space-y-4">
+                <div class="relative flex justify-center">
+                    <div class="absolute -inset-4 bg-red-100/60 rounded-3xl blur-2xl -z-10"></div>
+                    <img id="mainProductImg" 
+                         src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1000&q=80" 
+                         alt="Máy ảnh Canon EOS R Series" 
+                         class="w-full max-w-md md:max-w-lg h-72 sm:h-96 object-cover rounded-2xl shadow-2xl border-4 border-white transition-all duration-300">
+                    <div class="absolute bottom-4 left-4 bg-white/95 backdrop-blur-md p-3 rounded-xl shadow-lg border border-gray-100 text-xs flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center text-canon font-bold text-base">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold text-gray-900">Bảo Hành 24 Tháng Toàn Quốc</p>
+                            <p class="text-gray-500">100% Phân phối Lê Bảo Minh</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Thumbnail Switcher -->
+                <div class="flex justify-center items-center space-x-3 pt-1">
+                    <button type="button" onclick="changeImage('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1000&q=80', this)" class="thumb-btn border-2 border-canon rounded-lg overflow-hidden w-16 h-16 shadow-sm focus:outline-none">
+                        <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=200&q=80" class="w-full h-full object-cover" alt="Thân máy">
+                    </button>
+                    <button type="button" onclick="changeImage('https://images.unsplash.com/photo-1502920917128-1aa500764cbd?auto=format&fit=crop&w=1000&q=80', this)" class="thumb-btn border-2 border-transparent hover:border-red-300 rounded-lg overflow-hidden w-16 h-16 shadow-sm focus:outline-none">
+                        <img src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?auto=format&fit=crop&w=200&q=80" class="w-full h-full object-cover" alt="Màn hình lật">
+                    </button>
+                    <button type="button" onclick="changeImage('https://images.unsplash.com/photo-1617005082133-548c4dd27f35?auto=format&fit=crop&w=1000&q=80', this)" class="thumb-btn border-2 border-transparent hover:border-red-300 rounded-lg overflow-hidden w-16 h-16 shadow-sm focus:outline-none">
+                        <img src="https://images.unsplash.com/photo-1617005082133-548c4dd27f35?auto=format&fit=crop&w=200&q=80" class="w-full h-full object-cover" alt="Cụm ống kính">
+                    </button>
+                    <button type="button" onclick="changeImage('https://images.unsplash.com/photo-1512790182412-b19e6d62bc39?auto=format&fit=crop&w=1000&q=80', this)" class="thumb-btn border-2 border-transparent hover:border-red-300 rounded-lg overflow-hidden w-16 h-16 shadow-sm focus:outline-none">
+                        <img src="https://images.unsplash.com/photo-1512790182412-b19e6d62bc39?auto=format&fit=crop&w=200&q=80" class="w-full h-full object-cover" alt="Trải nghiệm thực tế">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KHỐI 2: SOCIAL PROOF & STATS (TRUST) -->
+    <section class="py-12 bg-gray-100 border-b border-gray-200">
+        <div class="container mx-auto px-4">
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center mb-12">
+                <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                    <div class="w-10 h-10 mx-auto mb-2 bg-red-100 text-canon rounded-full flex items-center justify-center">
+                        <i class="fa-solid fa-box-open"></i>
+                    </div>
+                    <p class="text-2xl md:text-3xl font-black text-canon">3.800+</p>
+                    <p class="text-xs md:text-sm text-gray-600 font-medium">Đơn hàng đã bàn giao</p>
+                </div>
+                <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                    <div class="w-10 h-10 mx-auto mb-2 bg-red-100 text-canon rounded-full flex items-center justify-center">
+                        <i class="fa-solid fa-stamp"></i>
+                    </div>
+                    <p class="text-2xl md:text-3xl font-black text-canon">100%</p>
+                    <p class="text-xs md:text-sm text-gray-600 font-medium">Chính hãng Lê Bảo Minh</p>
+                </div>
+                <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                    <div class="w-10 h-10 mx-auto mb-2 bg-red-100 text-canon rounded-full flex items-center justify-center">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <p class="text-2xl md:text-3xl font-black text-canon">24 THÁNG</p>
+                    <p class="text-xs md:text-sm text-gray-600 font-medium">Bảo hành điện tử toàn quốc</p>
+                </div>
+                <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                    <div class="w-10 h-10 mx-auto mb-2 bg-red-100 text-canon rounded-full flex items-center justify-center">
+                        <i class="fa-solid fa-arrows-rotate"></i>
+                    </div>
+                    <p class="text-2xl md:text-3xl font-black text-canon">1 ĐỔI 1</p>
+                    <p class="text-xs md:text-sm text-gray-600 font-medium">Đổi mới trong 7 ngày</p>
+                </div>
+            </div>
+
+            <!-- Customer Testimonials -->
+            <div class="text-center max-w-2xl mx-auto mb-8">
+                <span class="text-canon font-bold text-xs uppercase tracking-wider">Đánh giá từ khách hàng</span>
+                <h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-1">Cộng Đồng Nhiếp Ảnh Gia & Creator Nói Gì?</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col justify-between hover:shadow-md transition-shadow">
+                    <div class="space-y-3">
+                        <div class="flex text-yellow-400 text-xs">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 text-xs md:text-sm italic leading-relaxed">
+                            "Màu da chân dung (Skin Tone) của Canon từ xưa đến nay vẫn là đỉnh cao. Mình chụp tiệc cưới giao file JPEG ăn ngay không phải ngồi blend màu lại nhiều. Giao hàng 2 tiếng trong nội thành rất uy tín!"
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-3 pt-4 border-t border-gray-100 mt-4">
+                        <div class="w-10 h-10 bg-red-100 text-canon font-bold rounded-full flex items-center justify-center text-sm">NV</div>
+                        <div>
+                            <p class="text-xs font-bold text-gray-900">Nguyễn Văn Hoàng</p>
+                            <p class="text-[11px] text-gray-500">Nhiếp ảnh gia tự do (Hà Nội)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col justify-between hover:shadow-md transition-shadow">
+                    <div class="space-y-3">
+                        <div class="flex text-yellow-400 text-xs">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 text-xs md:text-sm italic leading-relaxed">
+                            "Lấy nét theo mắt người cực nhạy, quay Vlog 4K rất nét và mượt. Đặc biệt shop tặng kèm thẻ nhớ 64GB tốc độ cao và túi Canon đựng rất vừa vặn, tiết kiệm được cả triệu bạc phụ kiện."
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-3 pt-4 border-t border-gray-100 mt-4">
+                        <div class="w-10 h-10 bg-blue-100 text-blue-600 font-bold rounded-full flex items-center justify-center text-sm">TM</div>
+                        <div>
+                            <p class="text-xs font-bold text-gray-900">Trần Minh Anh</p>
+                            <p class="text-[11px] text-gray-500">Content Creator (TP. Hồ Chí Minh)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col justify-between hover:shadow-md transition-shadow">
+                    <div class="space-y-3">
+                        <div class="flex text-yellow-400 text-xs">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 text-xs md:text-sm italic leading-relaxed">
+                            "Hàng nguyên seal tem 7 màu Lê Bảo Minh, kích hoạt bảo hành điện tử chính hãng chuẩn chỉ 24 tháng. Nhân viên tư vấn cấu hình combo rất có tâm, hỗ trợ trả góp 0% duyệt hồ sơ trong 15 phút."
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-3 pt-4 border-t border-gray-100 mt-4">
+                        <div class="w-10 h-10 bg-green-100 text-green-600 font-bold rounded-full flex items-center justify-center text-sm">LĐ</div>
+                        <div>
+                            <p class="text-xs font-bold text-gray-900">Lê Đức Thắng</p>
+                            <p class="text-[11px] text-gray-500">Chủ Studio Áo Cưới (Đà Nẵng)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KHỐI 3: BENEFITS & FEATURES (INTEREST & DESIRE) -->
+    <section class="py-12 md:py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-canon font-bold text-xs uppercase tracking-wider">Công nghệ dẫn đầu</span>
+                <h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-1 mb-3">Tại Sao Canon EOS R Là Lựa Chọn Hàng Đầu?</h2>
+                <p class="text-gray-600 text-sm md:text-base">Sự kết hợp hoàn hảo giữa cảm biến cao cấp và thuật toán AI tiên tiến nhất.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Feature 1 -->
+                <div class="p-6 bg-gray-50 rounded-2xl border border-gray-100 hover:border-red-200 transition-all hover:shadow-lg group">
+                    <div class="w-12 h-12 bg-red-100 text-canon rounded-xl flex items-center justify-center text-xl font-bold mb-4 group-hover:bg-canon group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-eye"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-900 mb-2">Lấy Nét AI Siêu Tốc</h3>
+                    <p class="text-gray-600 text-xs md:text-sm leading-relaxed">
+                        Cảm biến Dual Pixel CMOS AF II tự động nhận diện và bám nét mắt người, động vật, xe cộ siêu tốc. Không bao giờ bỏ lỡ khoảnh khắc đắt giá.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="p-6 bg-gray-50 rounded-2xl border border-gray-100 hover:border-red-200 transition-all hover:shadow-lg group">
+                    <div class="w-12 h-12 bg-red-100 text-canon rounded-xl flex items-center justify-center text-xl font-bold mb-4 group-hover:bg-canon group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-video"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-900 mb-2">Quay Phim 4K Mượt Mà</h3>
+                    <p class="text-gray-600 text-xs md:text-sm leading-relaxed">
+                        Hỗ trợ 4K 60fps Uncropped chất lượng cao kết hợp chống rung cảm biến IBIS 8 stop. Thỏa sức làm Vlog, TikTok & Cinematic mượt mà không rung lắc.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="p-6 bg-gray-50 rounded-2xl border border-gray-100 hover:border-red-200 transition-all hover:shadow-lg group">
+                    <div class="w-12 h-12 bg-red-100 text-canon rounded-xl flex items-center justify-center text-xl font-bold mb-4 group-hover:bg-canon group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-wifi"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-900 mb-2">Kết Nối 1-Touch</h3>
+                    <p class="text-gray-600 text-xs md:text-sm leading-relaxed">
+                        Wi-Fi băng tần kép & Bluetooth truyền ảnh/video ngay lập tức sang smartphone chỉ trong 3 giây qua ứng dụng Canon Camera Connect miễn phí.
+                    </p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="p-6 bg-gray-50 rounded-2xl border border-gray-100 hover:border-red-200 transition-all hover:shadow-lg group">
+                    <div class="w-12 h-12 bg-red-100 text-canon rounded-xl flex items-center justify-center text-xl font-bold mb-4 group-hover:bg-canon group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-palette"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-900 mb-2">Màu Sắc Canon Chuẩn</h3>
+                    <p class="text-gray-600 text-xs md:text-sm leading-relaxed">
+                        Thuật toán Color Science trứ danh tái tạo màu da hồng hào, mịn màng và trung thực. Chụp file JPEG đăng mạng xã hội ngay không cần qua Photoshop.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KHỐI 4: OFFER & URGENCY + VARIANT SELECTOR + ORDER FORM (ACTION) -->
+    <section id="order-form" class="py-12 md:py-16 bg-gradient-to-b from-gray-100 to-white">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="bg-white rounded-3xl shadow-2xl border-2 border-red-500 overflow-hidden">
+                <!-- Header Form -->
+                <div class="bg-gradient-to-r from-red-600 to-canon p-6 text-white text-center">
+                    <span class="bg-yellow-400 text-gray-900 text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider">Ưu Đãi Có Hạn Đến Hết Hôm Nay</span>
+                    <h2 class="text-2xl md:text-3xl font-black mt-2">ĐẶT HÀNG CANON EOS R CHÍNH HÃNG</h2>
+                    <p class="text-red-100 text-xs md:text-sm mt-1">Chọn gói combo - Nhận ngay ưu đãi 20% & Bộ quà tặng độc quyền trị giá 2.500.000đ</p>
+                </div>
+
+                <div class="p-6 md:p-10 space-y-8">
+                    <!-- BƯỚC 1: BỘ CHỌN PHÂN LOẠI / COMBO SẢN PHẨM (CRO BOOSTER) -->
+                    <div>
+                        <div class="flex items-center space-x-2 mb-3">
+                            <span class="w-6 h-6 rounded-full bg-canon text-white text-xs font-bold flex items-center justify-center">1</span>
+                            <h3 class="font-bold text-gray-900 text-sm md:text-base">Chọn Phiên Bản Phù Hợp Với Bạn:</h3>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                            <!-- Variant 1 -->
+                            <label class="variant-card relative p-4 rounded-xl border-2 border-canon bg-red-50/50 cursor-pointer transition-all flex flex-col justify-between" onclick="selectVariant('body', '25.990.000đ', '32.500.000đ', 'Tiết kiệm 6.510.000đ', 'Combo Body Only (Chỉ Thân Máy)', this)">
+                                <input type="radio" name="product_variant" value="body" checked class="hidden">
+                                <div>
+                                    <div class="flex justify-between items-start">
+                                        <p class="font-bold text-sm text-gray-900">Body Only</p>
+                                        <i class="fa-solid fa-circle-check text-canon text-base check-icon"></i>
+                                    </div>
+                                    <p class="text-xs text-gray-500 mt-1">Chỉ thân máy (Dành cho người đã có lens RF/EF)</p>
+                                </div>
+                                <div class="mt-4 pt-3 border-t border-red-200">
+                                    <span class="text-[11px] text-gray-400 line-through">32.500.000đ</span>
+                                    <p class="text-lg font-black text-canon">25.990.000đ</p>
+                                </div>
+                            </label>
+
+                            <!-- Variant 2 (Bán chạy nhất) -->
+                            <label class="variant-card relative p-4 rounded-xl border-2 border-gray-200 hover:border-red-300 bg-white cursor-pointer transition-all flex flex-col justify-between" onclick="selectVariant('kit', '31.490.000đ', '38.900.000đ', 'Tiết kiệm 7.410.000đ', 'Combo Body + Kit RF 24-105mm F4-7.1 IS STM', this)">
+                                <input type="radio" name="product_variant" value="kit" class="hidden">
+                                <span class="absolute -top-2.5 right-3 bg-red-600 text-white text-[10px] font-black px-2 py-0.5 rounded-full shadow-sm">BÁN CHẠY NHẤT 🔥</span>
+                                <div>
+                                    <div class="flex justify-between items-start">
+                                        <p class="font-bold text-sm text-gray-900">Kit RF 24-105mm</p>
+                                        <i class="fa-regular fa-circle text-gray-300 text-base check-icon"></i>
+                                    </div>
+                                    <p class="text-xs text-gray-500 mt-1">Body + Lens Đa Dụng (Chụp phong cảnh, du lịch, sự kiện)</p>
+                                </div>
+                                <div class="mt-4 pt-3 border-t border-gray-100">
+                                    <span class="text-[11px] text-gray-400 line-through">38.900.000đ</span>
+                                    <p class="text-lg font-black text-canon">31.490.000đ</p>
+                                </div>
+                            </label>
+
+                            <!-- Variant 3 -->
+                            <label class="variant-card relative p-4 rounded-xl border-2 border-gray-200 hover:border-red-300 bg-white cursor-pointer transition-all flex flex-col justify-between" onclick="selectVariant('portrait', '29.290.000đ', '35.800.000đ', 'Tiết kiệm 6.510.000đ', 'Combo Body + Lens RF 50mm F1.8 STM (Chuyên Chân Dung)', this)">
+                                <input type="radio" name="product_variant" value="portrait" class="hidden">
+                                <div>
+                                    <div class="flex justify-between items-start">
+                                        <p class="font-bold text-sm text-gray-900">Fix RF 50mm F1.8</p>
+                                        <i class="fa-regular fa-circle text-gray-300 text-base check-icon"></i>
+                                    </div>
+                                    <p class="text-xs text-gray-500 mt-1">Body + Lens Chân Dung (Xóa phông mịt mù, chụp thiếu sáng)</p>
+                                </div>
+                                <div class="mt-4 pt-3 border-t border-gray-100">
+                                    <span class="text-[11px] text-gray-400 line-through">35.800.000đ</span>
+                                    <p class="text-lg font-black text-canon">29.290.000đ</p>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- BƯỚC 2: QUÀ TẶNG & THÔNG TIN FORM -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4 border-t border-gray-100">
+                        <!-- Quà tặng & Cam kết -->
+                        <div class="space-y-5">
+                            <div class="bg-red-50 p-4 rounded-2xl border border-red-200">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs font-bold text-gray-600 uppercase">Giá gói đã chọn:</span>
+                                    <span id="discountBadge" class="bg-red-600 text-white text-[11px] font-bold px-2 py-0.5 rounded">Tiết kiệm 6.510.000đ</span>
+                                </div>
+                                <div class="flex items-baseline space-x-2 mt-2">
+                                    <p class="text-3xl font-black text-canon" id="formCurrentPrice">25.990.000đ</p>
+                                    <p class="text-xs text-gray-400 line-through" id="formOldPrice">32.500.000đ</p>
+                                </div>
+                                <p class="text-xs font-semibold text-gray-700 mt-1" id="selectedVariantText">Combo: Body Only (Chỉ Thân Máy)</p>
+                            </div>
+
+                            <div>
+                                <p class="font-bold text-sm text-gray-900 mb-3 flex items-center">
+                                    <span class="mr-2">🎁</span> Bộ quà tặng kèm độc quyền hôm nay:
+                                </p>
+                                <ul class="space-y-2.5 text-xs md:text-sm text-gray-700">
+                                    <li class="flex items-center"><i class="fa-solid fa-circle-check text-green-500 mr-2 text-sm"></i> Thẻ nhớ SanDisk Extreme 64GB 170MB/s (650.000đ)</li>
+                                    <li class="flex items-center"><i class="fa-solid fa-circle-check text-green-500 mr-2 text-sm"></i> Túi đeo máy ảnh Canon chính hãng cao cấp (450.000đ)</li>
+                                    <li class="flex items-center"><i class="fa-solid fa-circle-check text-green-500 mr-2 text-sm"></i> Bộ vệ sinh Sensor & thấu kính chuyên dụng (300.000đ)</li>
+                                    <li class="flex items-center"><i class="fa-solid fa-circle-check text-green-500 mr-2 text-sm"></i> Gói bảo dưỡng, vệ sinh máy miễn phí trọn đời tại Shop</li>
+                                </ul>
+                            </div>
+
+                            <div class="border-t border-gray-200 pt-4 text-xs text-gray-500 space-y-1.5">
+                                <p><i class="fa-solid fa-truck-fast text-canon mr-1.5"></i> Giao hỏa tốc toàn quốc - Được bóc hộp kiểm tra và bật máy thử trước khi nhận</p>
+                                <p><i class="fa-solid fa-shield-halved text-canon mr-1.5"></i> Tem chống hàng giả 7 màu Lê Bảo Minh, kích hoạt bảo hành điện tử chính hãng</p>
+                            </div>
+                        </div>
+
+                        <!-- Form đặt hàng tinh gọn -->
+                        <div>
+                            <div class="flex items-center space-x-2 mb-3">
+                                <span class="w-6 h-6 rounded-full bg-canon text-white text-xs font-bold flex items-center justify-center">2</span>
+                                <h3 class="font-bold text-gray-900 text-sm md:text-base">Thông Tin Nhận Hàng:</h3>
+                            </div>
+
+                            <form id="checkoutForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                                <input type="hidden" id="hiddenVariant" value="Combo Body Only (Chỉ Thân Máy)">
+                                <input type="hidden" id="hiddenPrice" value="25.990.000đ">
+
+                                <div>
+                                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Họ và tên người nhận *</label>
+                                    <input type="text" id="fullname" required placeholder="Ví dụ: Nguyễn Văn Hoàng" 
+                                           class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-canon focus:border-canon text-sm outline-none transition-all shadow-sm">
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Số điện thoại liên hệ *</label>
+                                    <input type="tel" id="phone" required pattern="(0|\+84)[3|5|7|8|9][0-9]{8}" placeholder="Ví dụ: 0912345678" title="Vui lòng nhập số điện thoại Việt Nam hợp lệ (10 số)" 
+                                           class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-canon focus:border-canon text-sm outline-none transition-all shadow-sm">
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Địa chỉ nhận hàng chi tiết *</label>
+                                    <textarea id="address" required rows="2" placeholder="Số nhà, tên đường, Phường/Xã, Quận/Huyện, Tỉnh/TP..." 
+                                              class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-canon focus:border-canon text-sm outline-none transition-all resize-none shadow-sm"></textarea>
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1.5">Hình thức thanh toán</label>
+                                    <div class="grid grid-cols-2 gap-2 text-xs">
+                                        <label class="flex items-center space-x-2 border border-gray-300 rounded-lg p-2.5 cursor-pointer hover:border-canon bg-white">
+                                            <input type="radio" name="payment_method" value="COD" checked class="text-canon focus:ring-canon">
+                                            <span class="font-medium text-gray-800">Thanh toán khi nhận (COD)</span>
+                                        </label>
+                                        <label class="flex items-center space-x-2 border border-gray-300 rounded-lg p-2.5 cursor-pointer hover:border-canon bg-white">
+                                            <input type="radio" name="payment_method" value="TraGop" class="text-canon focus:ring-canon">
+                                            <span class="font-medium text-gray-800">Tư vấn Trả Góp 0%</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <button type="submit" 
+                                        class="w-full bg-canon hover:bg-canonDark text-white font-black text-base md:text-lg py-4 rounded-xl shadow-xl hover:shadow-red-200 transition-all transform active:scale-95 flex items-center justify-center space-x-2 animate-pulse-custom">
+                                    <span>XÁC NHẬN ĐẶT HÀNG - GIỮ ƯU ĐÃI</span>
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                                <p class="text-center text-[11px] text-gray-400">🛡️ Thông tin của bạn được cam kết bảo mật 100%.</p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KHỐI 5: FAQ - HỎI & ĐÁP THƯỜNG GẶP (OBJECTION KILLER) -->
+    <section class="py-12 md:py-16 bg-white border-t border-gray-200">
+        <div class="container mx-auto px-4 max-w-3xl">
+            <div class="text-center mb-10">
+                <span class="text-canon font-bold text-xs uppercase tracking-wider">Giải đáp thắc mắc</span>
+                <h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-1">Câu Hỏi Thường Gặp Về Canon EOS R</h2>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
+                    <button type="button" onclick="toggleFaq(this)" class="w-full px-5 py-4 text-left font-bold text-gray-900 bg-gray-50 flex items-center justify-between hover:bg-gray-100 transition-colors">
+                        <span class="text-sm md:text-base">1. Làm thế nào để kiểm tra máy chính hãng Lê Bảo Minh?</span>
+                        <i class="fa-solid fa-chevron-down text-gray-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content px-5 bg-white text-gray-600 text-xs md:text-sm leading-relaxed border-t border-gray-100">
+                        <div class="py-4">
+                            Mỗi sản phẩm Canon xuất kho tại Canon ProShop đều dán đầy đủ tem chống hàng giả 7 màu của nhà phân phối Lê Bảo Minh trên thân hộp và thân máy. Bạn chỉ cần cào nhẹ lớp phủ bạc lấy mã PIN và nhắn tin gửi tổng đài 8077 hoặc tra cứu trên website chính thức của Canon Vietnam để kích hoạt bảo hành điện tử 24 tháng ngay lập tức.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
+                    <button type="button" onclick="toggleFaq(this)" class="w-full px-5 py-4 text-left font-bold text-gray-900 bg-gray-50 flex items-center justify-between hover:bg-gray-100 transition-colors">
+                        <span class="text-sm md:text-base">2. Tôi ở tỉnh xa thì nhận hàng thế nào? Có được kiểm tra máy trước không?</span>
+                        <i class="fa-solid fa-chevron-down text-gray-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content px-5 bg-white text-gray-600 text-xs md:text-sm leading-relaxed border-t border-gray-100">
+                        <div class="py-4">
+                            Shop miễn phí vận chuyển hỏa tốc toàn quốc qua Viettel Post / GHTK có bảo hiểm hàng hóa 100%. Khi shipper giao tới, bạn được quyền mở hộp, kiểm tra đúng thân máy, phụ kiện quà tặng, lắp pin test nguồn và chụp thử vài tấm kiểm tra sensor rồi mới thanh toán tiền cho nhân viên giao hàng.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
+                    <button type="button" onclick="toggleFaq(this)" class="w-full px-5 py-4 text-left font-bold text-gray-900 bg-gray-50 flex items-center justify-between hover:bg-gray-100 transition-colors">
+                        <span class="text-sm md:text-base">3. Cửa hàng có hỗ trợ mua trả góp 0% không?</span>
+                        <i class="fa-solid fa-chevron-down text-gray-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content px-5 bg-white text-gray-600 text-xs md:text-sm leading-relaxed border-t border-gray-100">
+                        <div class="py-4">
+                            Có! Canon ProShop hỗ trợ trả góp lãi suất 0% qua thẻ tín dụng của hơn 25 ngân hàng đối tác (kỳ hạn 3, 6, 9, 12 tháng). Nếu không có thẻ tín dụng, bạn có thể mua qua CCCD gắn chip (duyệt hồ sơ online 15 phút, không cần thế chấp tài sản). Bạn chỉ cần tích chọn "Tư vấn Trả Góp 0%" trong form, nhân viên tài chính sẽ gọi hướng dẫn chi tiết.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
+                    <button type="button" onclick="toggleFaq(this)" class="w-full px-5 py-4 text-left font-bold text-gray-900 bg-gray-50 flex items-center justify-between hover:bg-gray-100 transition-colors">
+                        <span class="text-sm md:text-base">4. Quà tặng kèm theo (thẻ nhớ, túi) có được bảo hành không?</span>
+                        <i class="fa-solid fa-chevron-down text-gray-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content px-5 bg-white text-gray-600 text-xs md:text-sm leading-relaxed border-t border-gray-100">
+                        <div class="py-4">
+                            Tất cả quà tặng kèm đều là phụ kiện chính hãng loại 1: Thẻ nhớ SanDisk Extreme High-Speed được bảo hành 5 năm 1 đổi 1; Túi Canon bảo hành đường may khóa kéo 12 tháng. Ngoài ra khách hàng được miễn phí vệ sinh sensor và nâng cấp Firmware trọn đời sản phẩm tại cửa hàng.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KHỐI 6: FOOTER & TRUST SIGNALS -->
+    <footer class="bg-gray-900 text-gray-400 py-12 text-xs md:text-sm">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+                <a href="#" class="text-2xl font-black text-white tracking-tight">CANON <span class="text-canon">ProShop</span></a>
+                <p class="mt-3 text-gray-400 text-xs leading-relaxed">
+                    Hệ thống bán lẻ máy ảnh, ống kính RF/EF và phụ kiện nhiếp ảnh chuyên nghiệp hàng đầu Việt Nam. Đại lý ủy quyền chính thức từ Canon Vietnam & Lê Bảo Minh.
+                </p>
+                <div class="flex items-center space-x-3 mt-4 text-white text-base">
+                    <a href="#" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-canon transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-canon transition-colors"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-canon transition-colors"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-3 uppercase tracking-wider text-xs">Hệ Thống Showroom & Hotline</h4>
+                <p class="flex items-start"><i class="fa-solid fa-location-dot mt-1 mr-2.5 text-canon"></i> <span>Showroom HCM: 123 Nguyễn Huệ, P. Bến Nghé, Quận 1, TP. HCM</span></p>
+                <p class="flex items-start mt-2"><i class="fa-solid fa-location-dot mt-1 mr-2.5 text-canon"></i> <span>Showroom HN: 45 Thái Hà, P. Trung Liệt, Đống Đa, Hà Nội</span></p>
+                <p class="mt-3"><i class="fa-solid fa-phone mr-2.5 text-canon"></i> Hotline Tư Vấn: <strong class="text-white">1900 6789</strong> (8:00 - 21:30)</p>
+                <p class="mt-1"><i class="fa-solid fa-envelope mr-2.5 text-canon"></i> Email: support@canonproshop.vn</p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-3 uppercase tracking-wider text-xs">Cam Kết & Chính Sách</h4>
+                <ul class="space-y-1.5 text-xs text-gray-400">
+                    <li class="flex items-center"><i class="fa-solid fa-check text-canon mr-2"></i> 100% Sản phẩm chính hãng Lê Bảo Minh</li>
+                    <li class="flex items-center"><i class="fa-solid fa-check text-canon mr-2"></i> Tem chống giả & Bảo hành điện tử 24 tháng</li>
+                    <li class="flex items-center"><i class="fa-solid fa-check text-canon mr-2"></i> Trả góp 0% lãi suất qua thẻ & CCCD</li>
+                    <li class="flex items-center"><i class="fa-solid fa-check text-canon mr-2"></i> Kiểm tra hàng ưng ý mới thanh toán (COD)</li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-gray-800 mt-10 pt-6 text-center text-xs text-gray-500">
+            © 2026 Canon ProShop. Tất cả quyền được bảo lưu. Bản thiết kế Landing Page chuẩn Conversion Rate Optimization (CRO).
+        </div>
+    </footer>
+
+    <!-- STICKY BOTTOM BAR FOR MOBILE (< 640px) -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-3 flex items-center justify-between z-40 sm:hidden shadow-2xl">
+        <div>
+            <p class="text-[10px] text-gray-500 line-through" id="mobileOldPrice">32.500.000đ</p>
+            <p class="text-lg font-black text-canon" id="mobileCurrentPrice">25.990.000đ</p>
+        </div>
+        <a href="#order-form" class="bg-canon text-white font-black text-xs px-5 py-3 rounded-xl shadow-lg active:scale-95 transition-transform flex items-center space-x-1.5">
+            <span>ĐẶT MUA NGAY</span>
+            <i class="fa-solid fa-bolt text-yellow-300"></i>
+        </a>
+    </div>
+
+    <!-- FLOATING CHAT & CALL BUTTONS (GÓC PHẢI DƯỚI) -->
+    <div class="fixed right-4 bottom-24 sm:bottom-6 z-40 flex flex-col space-y-3 items-end">
+        <!-- Nút Zalo -->
+        <a href="https://zalo.me" target="_blank" rel="noopener noreferrer" 
+           class="group flex items-center bg-zalo hover:bg-blue-700 text-white p-3 rounded-full shadow-xl transition-all transform hover:scale-110">
+            <span class="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs transition-all duration-300 text-xs font-bold px-0 group-hover:px-2">Chat Zalo Ngay</span>
+            <span class="w-7 h-7 flex items-center justify-center font-black text-sm">Zalo</span>
+        </a>
+
+        <!-- Nút Hotline Rung Lắc -->
+        <a href="tel:19006789" 
+           class="flex items-center justify-center bg-canon hover:bg-canonDark text-white w-13 h-13 p-3.5 rounded-full shadow-2xl transition-all transform hover:scale-110 animate-bounce">
+            <i class="fa-solid fa-phone text-lg"></i>
+        </a>
+    </div>
+
+    <!-- TOAST POPUP ĐƠN HÀNG THỰC TẾ (FOMO SOCIAL PROOF - GÓC TRÁI DƯỚI) -->
+    <div id="liveOrderToast" class="fixed left-4 bottom-24 sm:bottom-6 z-40 bg-white/95 backdrop-blur-md border border-gray-200 rounded-2xl shadow-2xl p-3.5 max-w-xs hidden items-center space-x-3 text-xs">
+        <div class="w-10 h-10 rounded-full bg-red-100 text-canon flex items-center justify-center text-base font-bold shrink-0">
+            <i class="fa-solid fa-bag-shopping"></i>
+        </div>
+        <div>
+            <p class="font-bold text-gray-900 leading-tight" id="toastCustomer">Anh Minh (Đống Đa, Hà Nội)</p>
+            <p class="text-canon font-semibold text-[11px]" id="toastCombo">Vừa đặt: Combo Kit RF 24-105mm</p>
+            <span class="text-[10px] text-gray-400" id="toastTime">Cách đây 2 phút</span>
+        </div>
+    </div>
+
+    <!-- MODAL POPUP THÀNH CÔNG (MICRO-INTERACTION) -->
+    <div id="thankYouModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-sm w-full p-6 text-center shadow-2xl transform transition-all scale-95 opacity-0" id="modalCard">
+            <div class="w-16 h-16 bg-green-100 text-green-500 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <h3 class="text-xl font-black text-gray-900 mb-1">ĐẶT HÀNG THÀNH CÔNG!</h3>
+            <p id="modalMessage" class="text-gray-600 text-xs md:text-sm mb-4">Cảm ơn bạn! Đơn hàng máy ảnh Canon của bạn đã được ghi nhận vào hệ thống.</p>
+            
+            <div class="bg-gray-50 rounded-xl p-3 mb-5 text-left text-xs space-y-1 text-gray-700 border border-gray-100">
+                <p><strong>Gói sản phẩm:</strong> <span id="modalCombo" class="text-canon font-bold"></span></p>
+                <p><strong>Tổng thanh toán dự kiến:</strong> <span id="modalTotal" class="text-canon font-bold"></span></p>
+                <p class="text-[11px] text-gray-500 pt-1">📞 Chuyên viên Canon ProShop sẽ liên hệ xác nhận đơn trong <strong>5 phút</strong>.</p>
+            </div>
+
+            <button onclick="closeModal()" class="w-full bg-canon text-white font-extrabold py-3.5 rounded-xl text-sm hover:bg-canonDark transition-all shadow-md">
+                HOÀN TẤT & ĐÓNG
+            </button>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // 1. Countdown Timer 15 phút (Tự động lặp lại)
+        let duration = 15 * 60;
+        const countdownEl = document.getElementById('countdown');
+        setInterval(() => {
+            let minutes = Math.floor(duration / 60);
+            let seconds = duration % 60;
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+            countdownEl.textContent = `${minutes}:${seconds}`;
+            if (--duration < 0) duration = 15 * 60;
+        }, 1000);
+
+        // 2. Chuyển ảnh Thumbnail ở Hero Section
+        function changeImage(src, btn) {
+            const mainImg = document.getElementById('mainProductImg');
+            mainImg.style.opacity = '0.4';
+            setTimeout(() => {
+                mainImg.src = src;
+                mainImg.style.opacity = '1';
+            }, 150);
+
+            // Cập nhật viền active
+            document.querySelectorAll('.thumb-btn').forEach(b => {
+                b.classList.remove('border-canon');
+                b.classList.add('border-transparent');
+            });
+            btn.classList.remove('border-transparent');
+            btn.classList.add('border-canon');
+        }
+
+        // 3. Chọn Combo / Variant Tự Động Cập Nhật Giá
+        function selectVariant(type, currentPrice, oldPrice, saveText, comboName, cardEl) {
+            // Cập nhật giá Hero
+            document.getElementById('heroCurrentPrice').textContent = currentPrice;
+            document.getElementById('heroOldPrice').textContent = oldPrice;
+
+            // Cập nhật giá Form
+            document.getElementById('formCurrentPrice').textContent = currentPrice;
+            document.getElementById('formOldPrice').textContent = oldPrice;
+            document.getElementById('discountBadge').textContent = saveText;
+            document.getElementById('selectedVariantText').textContent = 'Combo: ' + comboName;
+
+            // Cập nhật Mobile Sticky Bar
+            document.getElementById('mobileCurrentPrice').textContent = currentPrice;
+            document.getElementById('mobileOldPrice').textContent = oldPrice;
+
+            // Cập nhật hidden inputs
+            document.getElementById('hiddenVariant').value = comboName;
+            document.getElementById('hiddenPrice').value = currentPrice;
+
+            // Đổi style các card variant
+            const cards = document.querySelectorAll('.variant-card');
+            cards.forEach(card => {
+                card.classList.remove('border-canon', 'bg-red-50/50');
+                card.classList.add('border-gray-200', 'bg-white');
+                const icon = card.querySelector('.check-icon');
+                if (icon) {
+                    icon.className = 'fa-regular fa-circle text-gray-300 text-base check-icon';
+                }
+            });
+
+            // Card được click
+            if (cardEl) {
+                cardEl.classList.remove('border-gray-200', 'bg-white');
+                cardEl.classList.add('border-canon', 'bg-red-50/50');
+                const activeIcon = cardEl.querySelector('.check-icon');
+                if (activeIcon) {
+                    activeIcon.className = 'fa-solid fa-circle-check text-canon text-base check-icon';
+                }
+            }
+        }
+
+        // 4. Toggle Accordion FAQ
+        function toggleFaq(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('i');
+            const isOpen = content.classList.contains('open');
+
+            // Đóng các câu khác nếu muốn trải nghiệm accordion đơn
+            document.querySelectorAll('.faq-content').forEach(c => c.classList.remove('open'));
+            document.querySelectorAll('.fa-chevron-down').forEach(i => i.style.transform = 'rotate(0deg)');
+
+            if (!isOpen) {
+                content.classList.add('open');
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        // 5. Toast Thông Báo Đơn Hàng Mới (Social Proof FOMO)
+        const sampleOrders = [
+            { name: "Anh Nam (Cầu Giấy, HN)", combo: "Combo Kit RF 24-105mm", time: "1 phút trước" },
+            { name: "Chị Thảo (Quận 1, TP.HCM)", combo: "Combo Body Only", time: "3 phút trước" },
+            { name: "Anh Quang (Hải Châu, Đà Nẵng)", combo: "Combo Fix RF 50mm F1.8", time: "5 phút trước" },
+            { name: "Anh Đức (Bình Thạnh, TP.HCM)", combo: "Combo Kit RF 24-105mm", time: "8 phút trước" },
+            { name: "Anh Tuấn (Ninh Kiều, Cần Thơ)", combo: "Combo Body Only", time: "12 phút trước" }
+        ];
+        let orderIndex = 0;
+
+        function showNextOrderToast() {
+            const toast = document.getElementById('liveOrderToast');
+            const data = sampleOrders[orderIndex];
+            
+            document.getElementById('toastCustomer').textContent = data.name;
+            document.getElementById('toastCombo').textContent = "Vừa đặt: " + data.combo;
+            document.getElementById('toastTime').textContent = "Cách đây " + data.time;
+
+            toast.classList.remove('hidden', 'toast-hide');
+            toast.classList.add('flex', 'toast-show');
+
+            setTimeout(() => {
+                toast.classList.remove('toast-show');
+                toast.classList.add('toast-hide');
+                setTimeout(() => {
+                    toast.classList.remove('flex');
+                    toast.classList.add('hidden');
+                }, 400);
+            }, 4500);
+
+            orderIndex = (orderIndex + 1) % sampleOrders.length;
+        }
+        // Kích hoạt toast sau 3 giây đầu tiên, sau đó lặp lại mỗi 14 giây
+        setTimeout(() => {
+            showNextOrderToast();
+            setInterval(showNextOrderToast, 14000);
+        }, 3000);
+
+        // 6. Xử lý Form Submit & Hiện Modal Chúc Mừng
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('fullname').value;
+            const combo = document.getElementById('hiddenVariant').value;
+            const price = document.getElementById('hiddenPrice').value;
+
+            const modal = document.getElementById('thankYouModal');
+            const modalCard = document.getElementById('modalCard');
+            const modalMsg = document.getElementById('modalMessage');
+            const modalCombo = document.getElementById('modalCombo');
+            const modalTotal = document.getElementById('modalTotal');
+
+            modalMsg.textContent = `Cảm ơn ${name}! Đơn đặt hàng Canon EOS R của bạn đã được tiếp nhận thành công.`;
+            modalCombo.textContent = combo;
+            modalTotal.textContent = price;
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            setTimeout(() => {
+                modalCard.classList.remove('scale-95', 'opacity-0');
+                modalCard.classList.add('scale-100', 'opacity-100');
+            }, 50);
+
+            // Xóa form
+            document.getElementById('checkoutForm').reset();
+        }
+
+        // 7. Đóng Modal
+        function closeModal() {
+            const modal = document.getElementById('thankYouModal');
+            const modalCard = document.getElementById('modalCard');
+            modalCard.classList.remove('scale-100', 'opacity-100');
+            modalCard.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                modal.classList.remove('flex');
+                modal.classList.add('hidden');
+            }, 200);
+        }
+    </script>
+</body>
+</html>
